@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';  /*PARA EL ALERT ACTION SHEET*/
+
 
 @Component({
   selector: 'app-action-sheet',
@@ -9,15 +9,15 @@ import { AlertController } from '@ionic/angular';  /*PARA EL ALERT ACTION SHEET*
 })
 export class ActionSheetPage implements OnInit {
 
-  constructor(private alertController: AlertController) {}  /*PARA EL ALERT ACTION SHEET*/
-/*constructor(private actionSheetCtrl : ActionSheetController){}*/
+  result: string;
+  
+  constructor(private actionSheetCtrl : ActionSheetController){}
  
   ngOnInit() {}
-  /* async presentActionSheet() {
+  async presentActionSheet() {
     const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Example header',
-      subHeader: 'Example subheader',
-
+      header: 'Aqui van los archvos',
+      subHeader: 'Escoge sabiamente',
       buttons: [
         {
           text: 'Delete',
@@ -46,18 +46,7 @@ export class ActionSheetPage implements OnInit {
     });
 
     await actionSheet.present();
-
-    
-  } */
-  /*PARA EL ALERT ACTION SHEET*/
-   async presentsection() {
-    const alert = await this.alertController.create({
-      header: 'Alerta',
-      subHeader: 'memememe em ememem emem emem ememe memeemem emem  mem em e',
-      message: 'This is an alert!',
-      buttons: ['OK'],
-    });
-
-    await alert.present();
+    const result = await actionSheet.onDidDismiss();
+    this.result = JSON.stringify(result, null, 2); 
   } 
 }
