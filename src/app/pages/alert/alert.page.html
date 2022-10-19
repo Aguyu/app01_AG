@@ -1,6 +1,7 @@
-<app-header titulo="pagina alerta"></app-header>
+<app-header [titulo]="titulo || 'AlertPage'"></app-header>
 
 <ion-content>
   <ion-button (click)="presentAlert()" expand="full">Mostrar alerta </ion-button>
+  <ion-button (click)="presentAlertinput()" expand="full" color="secondary">Renamepage </ion-button>
 </ion-content>
 

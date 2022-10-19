@@ -10,8 +10,10 @@ import { ActionSheetController } from '@ionic/angular';
 export class ActionSheetPage implements OnInit {
 
   result: string;
+  titulo:string;
   
   constructor(private actionSheetCtrl : ActionSheetController){}
+  
  
   ngOnInit() {}
   async presentActionSheet() {
@@ -49,4 +51,6 @@ export class ActionSheetPage implements OnInit {
     const result = await actionSheet.onDidDismiss();
     this.result = JSON.stringify(result, null, 2); 
   } 
+
+  
 }
